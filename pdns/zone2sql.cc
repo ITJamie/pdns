@@ -115,7 +115,7 @@ static void emitDomain(const DNSName& domain, const vector<ComboAddress>* primar
 {
   string iDomain = domain.toStringRootDot();
   if (::arg().mustDo("delete-matching-domains")) {
-    cout << "DELETE FROM domains WHERE name='" << toLower(sqlstr(iDomain)) << "';" << endl;
+    cout << "DELETE FROM domains WHERE name=" << toLower(sqlstr(iDomain)) << ";" << endl;
   }
   if (!::arg().mustDo("secondary")) {
     cout<<"insert into domains (name,type) values ("<<toLower(sqlstr(iDomain))<<",'NATIVE');"<<endl;
